@@ -7,19 +7,18 @@ public class Gladiator {
 	private int health;
 	private boolean alive;
 	
-	//Basic Value
-	public Gladiator () {
-		this("UnknownGladiator", 5);
-	}
-	
 	//Setting value
 	public Gladiator (String name, int health) {
 		this.name = name;
 		this.health = health;
 	}
-
+	
 	public boolean isAlive() {
 		return alive;
+	}
+	
+	public void setAlive(boolean alive) {
+		this.alive = alive;
 	}
 
 	public String getName() {
