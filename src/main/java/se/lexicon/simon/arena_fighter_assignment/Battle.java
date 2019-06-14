@@ -18,6 +18,13 @@ public class Battle {
 	}
 
 	public boolean battle() {
+		
+		appendLog("Your in Battle");
+		Round round = new Round();
+		
+		round.fight(player, opponent);
+		
+		round.getRoundLog().forEach(l -> System.out.println(l));
 		return false;
 	}
 

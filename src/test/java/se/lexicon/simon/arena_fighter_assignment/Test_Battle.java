@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 
 public class Test_Battle {
 	
@@ -33,6 +34,11 @@ public class Test_Battle {
 		assertFalse(battle.getBattleLog().isEmpty());
 		assertEquals(battleLog, battle.getBattleLog().get(0));
 		assertEquals(battleLog1, battle.getBattleLog().get(1));
+		
+	}
+	@Ignore ("Not Implemented yet")
+	@Test
+	public void Test_Battle() {
 		
 	}
 

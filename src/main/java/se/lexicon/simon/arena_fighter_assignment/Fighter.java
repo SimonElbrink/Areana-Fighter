@@ -75,11 +75,11 @@ public class Fighter {
 	
 	
 	public void printHistory() {
-		history.forEach(l -> System.out.println(l));
+		this.history.forEach(l -> System.out.println(l));
 		}
 	
 	public void addToHistory(String log) {
-		history.add(log);
+		this.history.add(log);
 	}
 	public List<String> getHistory() {return history;}
 	public void setHistory(List<String> history) {this.history = history;}
