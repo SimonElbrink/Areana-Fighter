@@ -15,9 +15,8 @@ public class Test_Battle {
 	@Before
 	public void init() {
 		Fighter player = new Fighter("Simon");
-		Fighter opponent = new Fighter();
 		
-		battle = new Battle(player, opponent);
+		battle = new Battle(player);
 		
 	}
 	

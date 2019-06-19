@@ -90,6 +90,7 @@ public class Fighter {
 	public int getStrength() {return strength;}
 	
 	public int getHealth() {return health;}
+	public void setHealth( int health) {this.health = health;}
 	
 	public int getScore() {return score;}
 	public void addToScore(int scoreToAdd) {this.score += score;}

@@ -11,21 +11,20 @@ public class Battle {
 	private List<String> battleLog;
 	
 	
-	public Battle(Fighter player, Fighter opponent) {
+	public Battle(Fighter player) {
 		this.player = player;
-		this.opponent = opponent;
+		this.opponent = new Fighter();
 		this.battleLog = new ArrayList<>(Arrays.asList());
 	}
 
-	public boolean battle() {
-		
-		appendLog("Your in Battle");
+	public boolean battle() {		
 		Round round = new Round();
 		
 		round.fight(player, opponent);
 		
 		round.getRoundLog().forEach(l -> System.out.println(l));
-		return false;
+		
+		return player.isAlive();
 	}
 
 
