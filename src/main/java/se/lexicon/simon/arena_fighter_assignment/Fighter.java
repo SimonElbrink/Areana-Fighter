@@ -5,7 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import static se.lexicon.erik.name_gen.RandomNameGenerator.*;
-
+/**
+ * 
+ * @author Simon Elbrink
+ *
+ */
 public class Fighter {
 
 	private String name;
@@ -61,14 +65,10 @@ public class Fighter {
 		builder.append("Fighter");
 		builder.append("\n name=");
 		builder.append(name);
-		builder.append("\n strength=");
-		builder.append(strength);
 		builder.append("\n health=");
 		builder.append(health);
 		builder.append("\n score=");
 		builder.append(score);
-		builder.append("\n retired=");
-		builder.append(retired);
 		
 		return builder.toString();
 	}
@@ -93,7 +93,7 @@ public class Fighter {
 	public void setHealth( int health) {this.health = health;}
 	
 	public int getScore() {return score;}
-	public void addToScore(int scoreToAdd) {this.score += score;}
+	public void addToScore(int scoreToAdd) {this.score += scoreToAdd;}
 	
 	public boolean isRetired() {return retired;}
 	public void retire() {this.retired = true;}

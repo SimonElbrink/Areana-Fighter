@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 
+ * @author Simon Elbrink
+ *
+ */
 public class Battle {
 	
 	private Fighter player;

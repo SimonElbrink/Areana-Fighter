@@ -1,7 +1,11 @@
 package se.lexicon.simon.arena_fighter_assignment;
 
 import static se.lexicon.simon.arena_fighter_assignment.Input.*;
-
+/**
+ * 
+ * @author Simon Elbrink
+ *
+ */
 public class Main {
 	
 	public static void main (String[] args) {
@@ -35,6 +39,7 @@ public class Main {
 			}
 		} while (!player.isRetired() && player.isAlive() == true);
 		
+		player.printHistory();
 		System.out.println("Good Bye");
 	}
 	

@@ -18,23 +18,73 @@ public class Test_Round {
 		opponent = new Fighter();
 		
 		round = new Round();
-		
 	}
+	
 	
 	@Test
 	public void test_isBiggest() {
-		Boolean isI1Biggest;
-		int i1 = 4, i2 = 2;
+		player.attack(5);
 		
-		isI1Biggest = round.isBiggest(i1, i2);
+		Boolean isPlayerStrongest = round.isPlayerStrongest(player, opponent);
 		
-		assertTrue(isI1Biggest);
+		assertTrue(isPlayerStrongest);
+	}
+	
+	@Test
+	public void test_playerAsWinnerShouldReturnStringOfWinner() {
+		
+		opponent.setHealth(0);
+		
+		String expected = "Simon";
+		
+		String actual = round.winner(player, opponent);
+		
+		assertTrue(actual.startsWith(expected));	
+	}
+	
+	@Test
+	public void test_opponentAsWinnerShouldReturnStringOfWinner() {
+		
+		player.setHealth(0);
+		
+		String unexpected = "Simon";
+		
+		String actual = round.winner(player, opponent);
+		
+		assertNotEquals(unexpected, actual);
+	}
+	
+	@Test
+	public void test_WinnerShouldBeAssigndScoreOfOne() {
+		
+		opponent.setHealth(0);
+		
+		int expected = 1;
+		
+		round.winner(player, opponent);
+		
+		assertEquals(expected, player.getScore());
+				
+	}
+		
+	@Test
+	public void test_IncrementroundNumber() {
+		
+		assertEquals(0,round.getRoundNumber());
+		
+		round.IncrementRoundNumber();
+		
+		assertEquals(1, round.getRoundNumber());
 		
 	}
 	
-	@Ignore ("Not done yet")
+	@Ignore("Not Done")
 	@Test
-	public void test_fight() {
+	public void test_Before_Fight() {
+		
+		assertEquals(0, round.getRoundNumber());
+		assertTrue(round.getRoundLog().isEmpty());
+		
 		
 	}
 

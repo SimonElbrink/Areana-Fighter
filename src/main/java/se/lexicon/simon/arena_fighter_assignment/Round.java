@@ -5,7 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import se.lexicon.simon.number_generator.RandomNumberGenerator;
-
+/**
+ * 
+ * @author Simon Elbrink
+ *
+ */
 public class Round {
 	
 	private int roundNumber;
@@ -27,15 +31,15 @@ public class Round {
 		appendLog(opponent.getInfo());
 		
 		do {
-			setRoundNumber(++roundNumber);
+			IncrementRoundNumber();
 			appendLog("Round: " + getRoundNumber());
 			
 			player.attack(rollDice());
 			opponent.attack(rollDice());
 			
-			boolean evaluate = isBiggest(player.getStrength(), opponent.getStrength());
+			boolean evaluate = isPlayerStrongest(player, opponent);
 
-			if (evaluate) {
+			if (evaluate == true) {
 				opponent.takeDamage(player.getStrength());
 
 				appendLog(opponent.getName() + " Took Damage of " + player.getStrength());
@@ -59,13 +63,10 @@ public class Round {
 
 	/**
 	 * Method favors player
-	 * @param playerStrength
-	 * @param opponentStrength
-	 * @return
 	 */
-	public boolean isBiggest(int playerStrength, int opponentStrength) {
+	public boolean isPlayerStrongest(Fighter player, Fighter opponent) {
 		
-		if(playerStrength >= opponentStrength)
+		if(player.getStrength() >= opponent.getStrength())
 			return true;
 		
 		return false;
@@ -75,7 +76,7 @@ public class Round {
 				return rng.getRandomIntBetween(1, 6);
 	}
 	
-	public String winner(Fighter player, Fighter opponent) {
+	protected String winner(Fighter player, Fighter opponent) {
 		if (player.isAlive() == true && opponent.isAlive() == false) {
 			player.addToScore(1);
 			return player.getName() + " Wins this battle!";
@@ -91,7 +92,7 @@ public class Round {
 	}
 
 	public int getRoundNumber() {return roundNumber;}
-	public void setRoundNumber(int roundNumber) {this.roundNumber = roundNumber;}
+	public void IncrementRoundNumber() {++roundNumber;}
 	
 	public void appendLog(String log) {roundLog.add(log);}
 	public void setRoundLog(List<String> roundLog) {this.roundLog = roundLog;}
