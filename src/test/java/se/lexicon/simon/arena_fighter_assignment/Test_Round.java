@@ -1,7 +1,6 @@
 package se.lexicon.simon.arena_fighter_assignment;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -22,7 +21,7 @@ public class Test_Round {
 	
 	
 	@Test
-	public void test_isBiggest() {
+	public void test_isPlayerStrongest() {
 		player.attack(5);
 		
 		Boolean isPlayerStrongest = round.isPlayerStrongest(player, opponent);
@@ -78,14 +77,27 @@ public class Test_Round {
 		
 	}
 	
-	@Ignore("Not Done")
 	@Test
 	public void test_Before_Fight() {
 		
-		assertEquals(0, round.getRoundNumber());
+		assertTrue(round.getRoundNumber() == 0);
 		assertTrue(round.getRoundLog().isEmpty());
-		
-		
+		assertTrue(player.isAlive() && opponent.isAlive() == true);
+		assertTrue(player.getStrength() == 0);
+		assertTrue(opponent.getStrength() == 0);
+
 	}
 
+	@Test
+	public void test_After_Fight() {
+				
+		round.fight(player, opponent);
+		
+		assertFalse(round.getRoundNumber() == 0);
+		assertFalse(round.getRoundLog().isEmpty());
+		assertFalse(player.isAlive() && opponent.isAlive() == true);
+		
+		assertTrue(player.getStrength() == 0);
+		assertTrue(opponent.getStrength() == 0);
+	}
 }

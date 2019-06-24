@@ -35,16 +35,6 @@ public class Fighter {
 		this.name = name;
 	}
 	
-	/**
-	 *
-	 * @param health
-	 */
-	public Fighter(String name ,int health) {
-		this();
-		this.name = name;
-		this.health = health;
-	}
-	
 	
 	public int attack(int randomModifier) {
 		return this.strength = randomModifier;
@@ -88,7 +78,8 @@ public class Fighter {
 	public void setName(String name) {this.name = name;}
 	
 	public int getStrength() {return strength;}
-	
+	protected void setStrength(int strength) {this.strength = strength;}
+
 	public int getHealth() {return health;}
 	public void setHealth( int health) {this.health = health;}
 	

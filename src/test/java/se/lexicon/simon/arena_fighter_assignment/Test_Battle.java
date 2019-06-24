@@ -5,7 +5,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Ignore;
 
 public class Test_Battle {
 	
@@ -15,7 +14,7 @@ public class Test_Battle {
 	@Before
 	public void init() {
 		Fighter player = new Fighter("Simon");
-		
+
 		battle = new Battle(player);
 		
 	}
@@ -35,10 +34,24 @@ public class Test_Battle {
 		assertEquals(battleLog1, battle.getBattleLog().get(1));
 		
 	}
-	@Ignore ("Not Implemented yet")
 	@Test
-	public void Test_Battle() {
+	public void Test_Battle_PlayerisDead() {
 		
+		battle.getPlayer().takeDamage(battle.getPlayer().getHealth());
+		
+		boolean alive = battle.battle();
+		
+		assertFalse(alive);
+	}
+	
+	@Test
+	public void Test_Battle_playerisAlive() {
+		
+		battle.getOpponent().takeDamage(battle.getOpponent().getHealth());
+		
+		boolean alive = battle.battle();
+		
+		assertTrue(alive);
 	}
 
 }

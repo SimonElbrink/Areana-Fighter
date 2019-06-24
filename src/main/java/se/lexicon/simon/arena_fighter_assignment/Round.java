@@ -54,6 +54,9 @@ public class Round {
 		
 		appendLog( winner(player, opponent) );
 		
+		player.setStrength(0);
+		opponent.setStrength(0);
+		
 		appendLog(player.getInfo());
 		appendLog(opponent.getInfo());
 		
@@ -95,7 +98,6 @@ public class Round {
 	public void IncrementRoundNumber() {++roundNumber;}
 	
 	public void appendLog(String log) {roundLog.add(log);}
-	public void setRoundLog(List<String> roundLog) {this.roundLog = roundLog;}
 	public List<String> getRoundLog() {return this.roundLog;}
 	
 }
