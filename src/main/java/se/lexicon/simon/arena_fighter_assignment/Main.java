@@ -39,7 +39,7 @@ public class Main {
 			}
 		} while (!player.isRetired() && player.isAlive() == true);
 		
-		player.printHistory();
+		System.out.println(player.toString());
 		System.out.println("Good Bye");
 	}
 	
